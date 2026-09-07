@@ -21,6 +21,7 @@
 
     <link rel="stylesheet" href="style.css?v=11" />
     <link rel="stylesheet" href="case-study.css?v=1" />
+    <link rel="stylesheet" href="case-study-extras.css?v=1" />
   </head>
 
   <body>
@@ -61,7 +62,7 @@
         <div class="hero-device-wrap">
           <div class="hero-glow"></div>
 
-          <div class="phone-frame">
+          <div class="phone-frame zoomable">
             <img
               src="assets/vetnet-preview.png"
               alt="Vet and Net mobile app preview"
@@ -104,7 +105,7 @@
 
         <div class="feature-grid">
           <article class="feature-card feature-card-large">
-            <div class="feature-image">
+            <div class="feature-image zoomable">
               <img
                 src="assets/vetnet-community.png"
                 alt="Vet and Net community screen"
@@ -123,7 +124,7 @@
           </article>
 
           <article class="feature-card">
-            <div class="feature-image">
+            <div class="feature-image zoomable">
               <img
                 src="assets/vetnet-resources.png"
                 alt="Vet and Net resources screen"
@@ -141,7 +142,7 @@
           </article>
 
           <article class="feature-card">
-            <div class="feature-image">
+            <div class="feature-image zoomable">
               <img
                 src="assets/vetnet-profile.png"
                 alt="Vet and Net profile screen"
@@ -246,5 +247,91 @@
         <a href="index.html#portfolio">View More Work</a>
       </footer>
     </main>
+
+    <!-- Click-to-view lightbox for the app screenshots above -->
+    <div class="lightbox-overlay" id="lightbox">
+      <button class="lightbox-close" aria-label="Close">&times;</button>
+      <button class="lightbox-prev" aria-label="Previous screenshot">&lsaquo;</button>
+      <img class="lightbox-image" alt="" />
+      <button class="lightbox-next" aria-label="Next screenshot">&rsaquo;</button>
+      <p class="lightbox-counter"></p>
+    </div>
+
+    <script>
+      (function () {
+        var triggers = Array.prototype.slice.call(
+          document.querySelectorAll(".zoomable")
+        );
+        if (!triggers.length) return;
+
+        var images = triggers.map(function (el) {
+          var img = el.querySelector("img");
+          return { src: img.src, alt: img.alt };
+        });
+
+        var overlay = document.getElementById("lightbox");
+        var imageEl = overlay.querySelector(".lightbox-image");
+        var counterEl = overlay.querySelector(".lightbox-counter");
+        var closeBtn = overlay.querySelector(".lightbox-close");
+        var prevBtn = overlay.querySelector(".lightbox-prev");
+        var nextBtn = overlay.querySelector(".lightbox-next");
+        var currentIndex = 0;
+
+        function show(index) {
+          currentIndex = (index + images.length) % images.length;
+          imageEl.src = images[currentIndex].src;
+          imageEl.alt = images[currentIndex].alt;
+          counterEl.textContent =
+            (currentIndex + 1) + " / " + images.length;
+        }
+
+        function open(index) {
+          show(index);
+          overlay.classList.add("is-open");
+          document.body.classList.add("lightbox-locked");
+          closeBtn.focus();
+        }
+
+        function close() {
+          overlay.classList.remove("is-open");
+          document.body.classList.remove("lightbox-locked");
+        }
+
+        triggers.forEach(function (el, index) {
+          el.classList.add("zoomable-trigger");
+          el.setAttribute("role", "button");
+          el.setAttribute("tabindex", "0");
+          el.setAttribute("aria-label", "View larger screenshot");
+          el.addEventListener("click", function () {
+            open(index);
+          });
+          el.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              open(index);
+            }
+          });
+        });
+
+        closeBtn.addEventListener("click", close);
+        prevBtn.addEventListener("click", function () {
+          show(currentIndex - 1);
+        });
+        nextBtn.addEventListener("click", function () {
+          show(currentIndex + 1);
+        });
+
+        overlay.addEventListener("click", function (e) {
+          if (e.target === overlay) close();
+        });
+
+        document.addEventListener("keydown", function (e) {
+          if (!overlay.classList.contains("is-open")) return;
+          if (e.key === "Escape") close();
+          if (e.key === "ArrowLeft") show(currentIndex - 1);
+          if (e.key === "ArrowRight") show(currentIndex + 1);
+        });
+      })();
+    </script>
   </body>
 </html>
