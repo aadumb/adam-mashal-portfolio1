@@ -21,6 +21,7 @@
 
     <link rel="stylesheet" href="style.css?v=11" />
     <link rel="stylesheet" href="case-study.css?v=1" />
+    <link rel="stylesheet" href="case-study-extras.css?v=1" />
   </head>
 
   <body>
@@ -44,8 +45,8 @@
           </h1>
 
           <p class="project-intro">
-            A minimal portfolio website designed to feel like a personal
-            archive: cinematic, direct, and built around selected work.
+            A minimal portfolio built like a personal archive — cinematic,
+            direct, centered on the work.
           </p>
 
           <div class="project-tags">
@@ -66,7 +67,11 @@
 
           <div class="web-visual-content">
             <p>ADAM MASHAL</p>
-            <h2>Design.<br />Build.<br />Refine.</h2>
+            <h2 aria-label="Design. Build. Refine.">
+              <span class="tw-line" data-text="Design." aria-hidden="true"></span><br />
+              <span class="tw-line" data-text="Build." aria-hidden="true"></span><br />
+              <span class="tw-line" data-text="Refine." aria-hidden="true"></span>
+            </h2>
             <div class="web-line"></div>
             <small>PORTFOLIO / 2026</small>
           </div>
@@ -84,16 +89,10 @@
           </h2>
 
           <p>
-            This portfolio was designed to avoid the typical template-driven
-            developer site. The goal was a focused, editorial experience that
-            makes the work feel intentional before a visitor reads a single
-            line of code.
-          </p>
-
-          <p>
-            Full-screen flames, oversized typography, restrained navigation,
-            and subtle motion create a visual language that feels confident,
-            modern, and personal.
+            Built to avoid the typical template-driven developer site — a
+            focused, editorial experience where the work feels intentional
+            before anyone reads a line of code. Full-screen flames, oversized
+            type, and restrained navigation carry the rest.
           </p>
         </div>
       </section>
@@ -115,8 +114,8 @@
               <p class="feature-number">01</p>
               <h3>Cinematic Landing Page</h3>
               <p>
-                A looping flame video establishes energy and character without
-                competing with the content.
+                A looping flame video sets the tone without competing with
+                the content.
               </p>
             </div>
           </article>
@@ -131,8 +130,8 @@
               <p class="feature-number">02</p>
               <h3>Bold Type System</h3>
               <p>
-                Space Grotesk, compressed spacing, and strong hierarchy create
-                a distinctive digital-editorial visual style.
+                Space Grotesk and tight spacing build a confident, editorial
+                hierarchy.
               </p>
             </div>
           </article>
@@ -147,8 +146,7 @@
               <p class="feature-number">03</p>
               <h3>Responsive Layout</h3>
               <p>
-                The layout adapts from desktop to mobile while preserving the
-                same visual intensity and navigational clarity.
+                The same visual intensity, from desktop down to mobile.
               </p>
             </div>
           </article>
@@ -172,9 +170,8 @@
         </h2>
 
         <p>
-          I build polished websites, mobile experiences, and practical digital
-          products with a focus on clarity, usefulness, and strong visual
-          direction.
+          I build polished websites and mobile products with a focus on
+          clarity and strong visual direction.
         </p>
 
         <a class="project-button" href="mailto:anmashal02@gmail.com">
@@ -188,5 +185,54 @@
         <a href="index.html#portfolio">View More Work</a>
       </footer>
     </main>
+
+    <script>
+      (function () {
+        var lines = Array.prototype.slice.call(
+          document.querySelectorAll(".web-visual-content .tw-line")
+        );
+        if (!lines.length) return;
+
+        var reduceMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+        if (reduceMotion) {
+          lines.forEach(function (el) {
+            el.textContent = el.dataset.text;
+          });
+          return;
+        }
+
+        function typeLine(el, callback) {
+          var text = el.dataset.text;
+          var i = 0;
+          el.textContent = "";
+          el.classList.add("is-typing");
+
+          var interval = setInterval(function () {
+            el.textContent += text.charAt(i);
+            i += 1;
+            if (i >= text.length) {
+              clearInterval(interval);
+              el.classList.remove("is-typing");
+              setTimeout(callback, 250);
+            }
+          }, 70);
+        }
+
+        function typeAll(index) {
+          if (index >= lines.length) {
+            lines[lines.length - 1].classList.add("is-typing");
+            return;
+          }
+          typeLine(lines[index], function () {
+            typeAll(index + 1);
+          });
+        }
+
+        typeAll(0);
+      })();
+    </script>
   </body>
 </html>
