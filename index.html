@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
@@ -22,7 +23,7 @@
     rel="stylesheet"
   >
 
-  <link rel="stylesheet" href="./style.css?v=4">
+  <link rel="stylesheet" href="./style.css?v=11">
 </head>
 
 <body>
@@ -55,7 +56,7 @@
     <!-- Center hero -->
     <section class="hero" aria-labelledby="main-heading">
       <p class="hero-label">
-        Software Engineer · Mobile & Web
+        Software Engineer · Mobile &amp; Web
       </p>
 
       <h1 id="main-heading">
@@ -69,7 +70,6 @@
       </p>
     </section>
 
-    <!-- Replace # with your real URLs when ready -->
     <nav class="social-links" aria-label="Social links">
       <a
         href="https://github.com/aadumb"
@@ -109,44 +109,49 @@
 
     <div class="project-grid">
       <!-- Vet & Net -->
-      <article
+      <a
         class="project-card"
-        onclick="window.location.href='./vetnet.html'"
-        onkeydown="if (event.key === 'Enter' || event.key === ' ') { window.location.href='./vetnet.html'; }"
-        role="link"
-        tabindex="0"
-        aria-label="View the Vet and Net case study"
+        href="./vetnet.html"
+        aria-label="View the Vet and Net mobile application case study"
       >
-        <p>Mobile Application · Flutter · Firebase</p>
+        <p>01 / Mobile Application</p>
 
         <h3>Vet &amp; Net</h3>
 
         <span>
-          A community platform for Alaska veterans →
+          Flutter / Firebase / Community Platform →
         </span>
-      </article>
+      </a>
 
-      <!-- Placeholder project -->
-      <article class="project-card">
-        <p>Web Development · Product Design</p>
+      <!-- Portfolio / Web Development -->
+      <a
+        class="project-card"
+        href="./web-development.html"
+        aria-label="View the web development portfolio case study"
+      >
+        <p>02 / Web Development</p>
 
-        <h3>Portfolio System</h3>
+        <h3>Digital Portfolio</h3>
 
         <span>
-          A minimal digital dossier built from scratch →
+          Design / Front-End Development / Identity →
         </span>
-      </article>
+      </a>
 
-      <!-- Placeholder project -->
-      <article class="project-card">
-        <p>More Work Coming Soon</p>
+      <!-- Contact / Future work -->
+      <a
+        class="project-card"
+        href="mailto:anmashal02@gmail.com?subject=Project%20Inquiry"
+        aria-label="Email Adam Mashal about a project inquiry"
+      >
+        <p>03 / Available for Work</p>
 
-        <h3>In Progress</h3>
+        <h3>Let’s Build</h3>
 
         <span>
-          New projects and experiments in development →
+          Have a project in mind? Get in touch →
         </span>
-      </article>
+      </a>
     </div>
   </section>
 
@@ -199,9 +204,8 @@
       something useful.
     </h2>
 
-    <!-- Replace this with your real email address -->
-    <a class="email-link" href="mailto:YOUR-EMAIL@example.com">
-      YOUR-EMAIL@example.com
+    <a class="email-link" href="mailto:anmashal02@gmail.com">
+      anmashal02@gmail.com
     </a>
   </section>
 </body>
