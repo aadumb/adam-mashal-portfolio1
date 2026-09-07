@@ -1,105 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <title>Adam Mashal — Portfolio</title>
   <meta
     name="description"
-    content="Portfolio of Adam Mashal, Software Engineer and creator of Vet & Net LLC."
-  />
+    content="Adam Mashal — Software Engineer building thoughtful digital products and community-focused mobile experiences."
+  >
 
-<link rel="stylesheet" href="./style.css?v=3" />
+  <title>Adam Mashal | Software Engineer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="./style.css?v=4">
 </head>
 
 <body>
-  <!-- Optional background video. Remove this entire block if flames.mp4 is not uploaded. -->
-  <video class="background-video" autoplay muted loop playsinline>
-    <source src="assets/flames.mp4" type="video/mp4" />
-  </video>
+  <main class="landing-page">
+    <!-- Full-screen background video -->
+    <video
+      class="flame-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      poster="./assets/flames-poster.png"
+      aria-hidden="true"
+    >
+      <source src="./assets/flames.mp4" type="video/mp4">
+    </video>
 
-  <div class="background-overlay"></div>
+    <div class="video-overlay"></div>
+    <div class="grain"></div>
 
-  <main class="portfolio-page">
-    <header class="site-header">
-      <a class="logo" href="index.html">AM.</a>
+    <!-- Vertical navigation -->
+    <a class="side-link side-link-left" href="#work">
+      Selected Work
+    </a>
 
-      <nav aria-label="Main navigation">
-        <a href="#work">Work</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+    <a class="side-link side-link-right" href="#contact">
+      Contact
+    </a>
 
-    <section class="hero">
-      <p class="eyebrow">SOFTWARE ENGINEER / PORTFOLIO / 2026</p>
-
-      <h1>
-        ADAM<br />
-        MASHAL
-      </h1>
-
-      <p class="hero-copy">
-        I build practical, secure digital experiences with Flutter, Firebase,
-        and modern web technologies.
+    <!-- Center hero -->
+    <section class="hero" aria-labelledby="main-heading">
+      <p class="hero-label">
+        Software Engineer · Mobile & Web
       </p>
 
-      <a class="button" href="#work">View Selected Work ↓</a>
+      <h1 id="main-heading">
+        <span>Adam</span>
+        <span>Mashal</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Building thoughtful digital experiences, practical software,
+        and community-focused products.
+      </p>
     </section>
 
-    <section class="work-section" id="work">
-      <div class="section-heading">
-        <p class="eyebrow">SELECTED WORK</p>
-        <h2>Featured Project</h2>
-      </div>
-
-      <article class="project-card">
-        <div class="project-image-wrap">
-          <img
-            class="project-image"
-            src="assets/vetnet-preview.png"
-            alt="Vet and Net mobile app preview"
-          />
-        </div>
-
-        <div class="project-content">
-          <p class="eyebrow">FLUTTER / FIREBASE / MOBILE APP</p>
-
-          <h3>Vet &amp; Net LLC</h3>
-
-          <p>
-            A community-focused mobile platform built to help Alaska veterans
-            find trusted resources, employment opportunities, and meaningful
-            support networks.
-          </p>
-
-          <a class="text-link" href="vetnet.html">
-            View Vet &amp; Net Case Study →
-          </a>
-        </div>
-      </article>
-    </section>
-
-    <section class="contact-section" id="contact">
-      <p class="eyebrow">LET'S CONNECT</p>
-
-      <h2>Have a project in mind?</h2>
-
-      <!-- Replace this email address with your real email -->
-      <a class="contact-email" href="mailto:your-email@example.com">
-        your-email@example.com
+    <!-- Replace # with your real URLs when ready -->
+    <nav class="social-links" aria-label="Social links">
+      <a
+        href="https://github.com/YOUR-GITHUB-USERNAME"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub
       </a>
 
-      <div class="social-links">
-        <!-- Replace # with your real links -->
-        <a href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      </div>
-    </section>
+      <a
+        href="https://www.linkedin.com/in/YOUR-LINKEDIN-USERNAME"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        LinkedIn
+      </a>
 
-    <footer>
-      <p>© 2026 Adam Mashal. Built with purpose.</p>
-    </footer>
+      <a href="mailto:YOUR-EMAIL@example.com">
+        Email
+      </a>
+    </nav>
+
+    <div class="scroll-indicator" aria-hidden="true">
+      <span></span>
+      Scroll
+    </div>
   </main>
+
+  <!-- Selected work -->
+  <section id="work" class="content-section">
+    <p class="section-number">01 / Selected Work</p>
+
+    <h2>
+      Work built with<br>
+      purpose.
+    </h2>
+
+    <div class="project-grid">
+      <!-- Vet & Net -->
+      <article
+        class="project-card"
+        onclick="window.location.href='./vetnet.html'"
+        onkeydown="if (event.key === 'Enter' || event.key === ' ') { window.location.href='./vetnet.html'; }"
+        role="link"
+        tabindex="0"
+        aria-label="View the Vet and Net case study"
+      >
+        <p>Mobile Application · Flutter · Firebase</p>
+
+        <h3>Vet &amp; Net</h3>
+
+        <span>
+          A community platform for Alaska veterans →
+        </span>
+      </article>
+
+      <!-- Placeholder project -->
+      <article class="project-card">
+        <p>Web Development · Product Design</p>
+
+        <h3>Portfolio System</h3>
+
+        <span>
+          A minimal digital dossier built from scratch →
+        </span>
+      </article>
+
+      <!-- Placeholder project -->
+      <article class="project-card">
+        <p>More Work Coming Soon</p>
+
+        <h3>In Progress</h3>
+
+        <span>
+          New projects and experiments in development →
+        </span>
+      </article>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="content-section">
+    <p class="section-number">02 / About</p>
+
+    <h2>
+      Technology should<br>
+      feel human.
+    </h2>
+
+    <p
+      style="
+        max-width: 680px;
+        color: var(--muted-text);
+        font-family: Inter, sans-serif;
+        font-size: clamp(1rem, 1.5vw, 1.2rem);
+        line-height: 1.8;
+      "
+    >
+      I am Adam Mashal, a software engineer focused on building clean,
+      usable, and reliable digital products. My work spans mobile
+      applications, web experiences, Firebase-backed systems, and
+      community-centered platforms.
+    </p>
+
+    <p
+      style="
+        max-width: 680px;
+        margin-top: 1.5rem;
+        color: var(--muted-text);
+        font-family: Inter, sans-serif;
+        font-size: clamp(1rem, 1.5vw, 1.2rem);
+        line-height: 1.8;
+      "
+    >
+      I am currently developing Vet &amp; Net LLC, a Flutter and Firebase
+      mobile app designed to help Alaska veterans discover resources,
+      opportunities, support, and meaningful community connections.
+    </p>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="content-section contact-section">
+    <p class="section-number">03 / Contact</p>
+
+    <h2>
+      Let’s build<br>
+      something useful.
+    </h2>
+
+    <!-- Replace this with your real email address -->
+    <a class="email-link" href="mailto:YOUR-EMAIL@example.com">
+      YOUR-EMAIL@example.com
+    </a>
+  </section>
 </body>
 </html>
