@@ -1,188 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Vet & Net LLC — Adam Mashal</title>
-  <meta
-    name="description"
-    content="Vet and Net LLC case study: a Flutter and Firebase mobile platform for Alaska veterans."
-  />
+    <meta
+      name="description"
+      content="Vet & Net — A community platform designed to connect Alaska veterans with resources, opportunities, and support."
+    />
 
-<link rel="stylesheet" href="./style.css?v=3" />
-</head>
+    <title>Vet & Net | Adam Mashal</title>
 
-<body>
-  <main class="case-study-page">
-    <header class="site-header">
-      <a class="logo" href="index.html">AM.</a>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-      <a class="back-link" href="index.html">← Back to Portfolio</a>
-    </header>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <section class="case-study-hero">
-      <div class="case-study-intro">
-        <p class="eyebrow">CASE STUDY / 2026</p>
+    <link rel="stylesheet" href="style.css?v=11" />
+    <link rel="stylesheet" href="case-study.css?v=1" />
+  </head>
 
-        <h1>Vet &amp; Net LLC</h1>
+  <body>
+    <main class="case-study">
+      <nav class="case-nav">
+        <a class="brand-link" href="index.html">AM.</a>
 
-        <p class="intro">
-          A Flutter and Firebase mobile platform designed to help Alaska
-          veterans discover resources, opportunities, and community support in
-          one secure place.
+        <a class="back-link" href="index.html#portfolio">
+          <span>←</span>
+          Back to Portfolio
+        </a>
+      </nav>
+
+      <section class="project-hero">
+        <div class="project-hero-content">
+          <p class="eyebrow">01 / Mobile Application / In Development</p>
+
+          <h1>
+            Vet<br />
+            <span>&amp; Net.</span>
+          </h1>
+
+          <p class="project-intro">
+            A community-centered mobile platform connecting Alaska veterans
+            with trusted resources, employment opportunities, peer support,
+            and local community.
+          </p>
+
+          <div class="project-tags">
+            <span>Flutter</span>
+            <span>Firebase</span>
+            <span>Firestore</span>
+            <span>Mobile UX</span>
+            <span>Community Platform</span>
+          </div>
+        </div>
+
+        <div class="hero-device-wrap">
+          <div class="hero-glow"></div>
+
+          <div class="phone-frame">
+            <img
+              src="assets/vetnet-preview.png"
+              alt="Vet and Net mobile app preview"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="project-summary">
+        <div class="summary-label">
+          <p>Project Overview</p>
+        </div>
+
+        <div class="summary-content">
+          <h2>
+            Connection should not depend on knowing where to look.
+          </h2>
+
+          <p>
+            Vet &amp; Net is being built to make support more visible,
+            accessible, and practical for veterans living across Alaska.
+            Rather than searching through disconnected websites, social
+            groups, and outdated directories, members can find useful
+            information in one focused platform.
+          </p>
+
+          <p>
+            The application combines community spaces, local resources,
+            employment opportunities, direct messaging, and personalized
+            profile preferences into one secure mobile experience.
+          </p>
+        </div>
+      </section>
+
+      <section class="feature-section">
+        <div class="section-heading">
+          <p class="eyebrow">Core Experience</p>
+          <h2>Built around<br />real connection.</h2>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card feature-card-large">
+            <div class="feature-image">
+              <img
+                src="assets/vetnet-community.png"
+                alt="Vet and Net community screen"
+              />
+            </div>
+
+            <div class="feature-copy">
+              <p class="feature-number">01</p>
+              <h3>Community Spaces</h3>
+              <p>
+                Public and private rooms give veterans a place to connect,
+                share information, ask questions, and build trusted local
+                support networks.
+              </p>
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-image">
+              <img
+                src="assets/vetnet-resources.png"
+                alt="Vet and Net resources screen"
+              />
+            </div>
+
+            <div class="feature-copy">
+              <p class="feature-number">02</p>
+              <h3>Alaska Resources</h3>
+              <p>
+                Clear access to veteran services, benefits guidance,
+                community assistance, and location-aware support.
+              </p>
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-image">
+              <img
+                src="assets/vetnet-profile.png"
+                alt="Vet and Net profile screen"
+              />
+            </div>
+
+            <div class="feature-copy">
+              <p class="feature-number">03</p>
+              <h3>Personalized Profiles</h3>
+              <p>
+                Members can manage preferences, saved opportunities,
+                communication settings, and their community identity.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="quote-section">
+        <p class="eyebrow">Design Principle</p>
+
+        <blockquote>
+          “Make essential support feel as approachable as sending a message.”
+        </blockquote>
+      </section>
+
+      <section class="tech-section">
+        <div class="section-heading">
+          <p class="eyebrow">Technology</p>
+          <h2>A scalable<br />foundation.</h2>
+        </div>
+
+        <div class="tech-list">
+          <div class="tech-item">
+            <span>01</span>
+            <div>
+              <h3>Flutter</h3>
+              <p>
+                A unified cross-platform mobile application experience for
+                Android, web, and future supported platforms.
+              </p>
+            </div>
+          </div>
+
+          <div class="tech-item">
+            <span>02</span>
+            <div>
+              <h3>Firebase Authentication</h3>
+              <p>
+                Secure account creation, sign-in flows, user identity, and
+                role-based application access.
+              </p>
+            </div>
+          </div>
+
+          <div class="tech-item">
+            <span>03</span>
+            <div>
+              <h3>Cloud Firestore</h3>
+              <p>
+                Real-time data for community rooms, resources, member
+                profiles, messaging, saved items, and app content.
+              </p>
+            </div>
+          </div>
+
+          <div class="tech-item">
+            <span>04</span>
+            <div>
+              <h3>Security Rules</h3>
+              <p>
+                Structured permissions for members, moderators, developers,
+                and administrators to protect community spaces and data.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-outro">
+        <p class="eyebrow">Currently Building</p>
+
+        <h2>
+          Technology in service<br />
+          of community.
+        </h2>
+
+        <p>
+          Vet &amp; Net is actively in development as a Flutter and Firebase
+          application. The focus remains on creating a useful, secure, and
+          approachable digital home for Alaska’s veteran community.
         </p>
 
-        <div class="tag-list" aria-label="Technology used">
-          <span>Flutter</span>
-          <span>Firebase</span>
-          <span>Firestore</span>
-          <span>Firebase Auth</span>
-          <span>Role-Based Access</span>
-        </div>
-      </div>
+        <a class="project-button" href="mailto:anmashal02@gmail.com">
+          Start a Conversation <span>↗</span>
+        </a>
+      </section>
 
-      <div class="hero-phone-preview">
-        <img
-          src="assets/vetnet-preview.png"
-          alt="Vet and Net mobile application home screen"
-        />
-      </div>
-    </section>
-
-    <section class="case-study-section">
-      <p class="eyebrow">THE MISSION</p>
-
-      <h2>Helping veterans stay connected to the support they deserve.</h2>
-
-      <p>
-        Vet &amp; Net LLC was designed as a centralized digital platform for
-        Alaska veterans. The app brings together community connection, local
-        resources, employment support, and secure communication tools.
-      </p>
-
-      <p>
-        The goal is simple: reduce friction between veterans and the people,
-        services, and opportunities that can help them move forward.
-      </p>
-    </section>
-
-    <section class="case-study-section">
-      <p class="eyebrow">CORE FEATURES</p>
-
-      <h2>Built around connection, access, and privacy.</h2>
-
-      <div class="feature-grid">
-        <article class="feature-card">
-          <h3>Community Rooms</h3>
-          <p>
-            Veterans can discover public community rooms or participate in
-            secure private spaces built for specific groups and conversations.
-          </p>
-        </article>
-
-        <article class="feature-card">
-          <h3>Direct Messaging</h3>
-          <p>
-            Private one-to-one messaging supports meaningful and direct
-            communication between members and staff.
-          </p>
-        </article>
-
-        <article class="feature-card">
-          <h3>Veteran Resources</h3>
-          <p>
-            Organized access to support resources, services, and local
-            information relevant to Alaska veterans.
-          </p>
-        </article>
-
-        <article class="feature-card">
-          <h3>Employment Support</h3>
-          <p>
-            Veterans can browse Alaska-focused employment opportunities and
-            express interest directly to moderators.
-          </p>
-        </article>
-
-        <article class="feature-card">
-          <h3>Secure Authentication</h3>
-          <p>
-            Firebase Authentication manages identity while Firestore rules
-            protect member data and private community content.
-          </p>
-        </article>
-
-        <article class="feature-card">
-          <h3>Role-Based Access</h3>
-          <p>
-            Member, moderator, developer, and owner roles provide controlled
-            access to tools, content, and administrative features.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section class="case-study-section">
-      <p class="eyebrow">APP EXPERIENCE</p>
-
-      <h2>Designed for clarity on mobile.</h2>
-
-      <div class="screen-grid">
-        <figure class="screen-card">
-          <img
-            src="assets/vetnet-community.png"
-            alt="Vet and Net community screen"
-          />
-          <figcaption>Community spaces and conversations.</figcaption>
-        </figure>
-
-        <figure class="screen-card">
-          <img
-            src="assets/vetnet-resources.png"
-            alt="Vet and Net resources screen"
-          />
-          <figcaption>Veteran support resources in one place.</figcaption>
-        </figure>
-
-        <figure class="screen-card">
-          <img
-            src="assets/vetnet-profile.png"
-            alt="Vet and Net user profile screen"
-          />
-          <figcaption>Account preferences and profile controls.</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="case-study-section technical-section">
-      <p class="eyebrow">TECHNICAL FOUNDATION</p>
-
-      <h2>Flutter UI backed by Firebase services.</h2>
-
-      <ul class="technical-list">
-        <li><strong>Flutter:</strong> Cross-platform mobile application development.</li>
-        <li><strong>Firebase Authentication:</strong> Secure member sign-in and registration.</li>
-        <li><strong>Cloud Firestore:</strong> Real-time community, profile, and messaging data.</li>
-        <li><strong>Firestore Security Rules:</strong> Role-aware and privacy-focused data access.</li>
-        <li><strong>IndexedStack Navigation:</strong> Fast tab navigation while preserving screen state.</li>
-      </ul>
-    </section>
-
-    <section class="case-study-cta">
-      <p class="eyebrow">VET &amp; NET LLC</p>
-      <h2>Building stronger connections for Alaska veterans.</h2>
-
-      <!-- Replace this email address with your real email -->
-      <a class="button" href="mailto:your-email@example.com?subject=Vet%20%26%20Net%20Demo%20Request">
-        Request a Demo
-      </a>
-    </section>
-
-    <footer>
-      <a href="index.html">← Return to Adam Mashal Portfolio</a>
-      <p>© 2026 Adam Mashal.</p>
-    </footer>
-  </main>
-</body>
+      <footer class="case-footer">
+        <a href="index.html">Adam Mashal</a>
+        <p>© 2026</p>
+        <a href="index.html#portfolio">View More Work</a>
+      </footer>
+    </main>
+  </body>
 </html>
