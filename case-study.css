@@ -109,6 +109,63 @@ body {
   text-transform: uppercase;
 }
 
+/* --- Swipeable Gallery Logic --- */
+.phone-gallery-wrapper {
+  margin-top: 3rem;
+  position: relative;
+}
+
+.phone-gallery {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory; /* The magic for snapping */
+  padding-bottom: 2rem;
+  scrollbar-width: none; /* Hides scrollbar on Firefox */
+}
+
+.phone-gallery::-webkit-scrollbar {
+  display: none; /* Hides scrollbar on Chrome/Safari */
+}
+
+.phone-gallery .feature-card {
+  flex: 0 0 300px; /* Adjust width to fit your phone assets */
+  scroll-snap-align: center;
+  background: var(--surface);
+  padding: 1rem;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+}
+
+.phone-gallery img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.feature-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted-text);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.feature-label span {
+  color: var(--fire);
+  font-weight: bold;
+}
+
+.gallery-hint {
+  text-align: center;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: var(--faint-text);
+  margin-top: 1rem;
+}
+
 /* --- Content Sections --- */
 .project-summary, .feature-section, .tech-section {
   display: grid;
