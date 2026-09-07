@@ -1,3 +1,8 @@
+
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --background: #080808;
   --surface: #121212;
@@ -10,17 +15,9 @@
   --max-width: 1440px;
 }
 
-* {
-  box-sizing: border-box;
-}
-/* Additions for: click-to-view screenshots (vetnet.html) and the
-   typewriter reveal on the digital portfolio mockup (web-development.html).
-   Relies on the color variables already defined in :root by style.css. */
-
 html {
   scroll-behavior: smooth;
 }
-/* ---------- Click-to-view screenshots ---------- */
 
 body {
   margin: 0;
@@ -28,28 +25,35 @@ body {
   background: var(--background);
   color: var(--text);
   font-family: "Space Grotesk", Arial, sans-serif;
+}
+
+/* 2. Move nested elements OUT of the body block */
 .zoomable-trigger {
   cursor: zoom-in;
+}
+
+.zoomable-trigger:focus-visible {
+  outline: 2px solid var(--fire);
+  outline-offset: 4px;
 }
 
 img {
   display: block;
   width: 100%;
   max-width: 100%;
-.zoomable-trigger:focus-visible {
-  outline: 2px solid var(--fire);
-  outline-offset: 4px;
 }
 
 a {
   color: inherit;
 }
 
-/* Page shell */
+/* 3. Fix the Case Study wrapper */
 .case-study {
   width: min(100%, var(--max-width));
   margin: 0 auto;
   padding: 0 clamp(1.25rem, 5vw, 5rem);
+}
+
 body.lightbox-locked {
   overflow: hidden;
 }
