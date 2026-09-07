@@ -1,28 +1,70 @@
+:root {
+  --background: #080808;
+  --surface: #121212;
+  --surface-soft: #171717;
+  --text: #f4f1ea;
+  --muted-text: rgba(244, 241, 234, 0.68);
+  --faint-text: rgba(244, 241, 234, 0.44);
+  --line: rgba(244, 241, 234, 0.18);
+  --fire: #ff6a00;
+  --max-width: 1440px;
+}
+
+* {
+  box-sizing: border-box;
+}
 /* Additions for: click-to-view screenshots (vetnet.html) and the
    typewriter reveal on the digital portfolio mockup (web-development.html).
    Relies on the color variables already defined in :root by style.css. */
 
+html {
+  scroll-behavior: smooth;
+}
 /* ---------- Click-to-view screenshots ---------- */
 
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--background);
+  color: var(--text);
+  font-family: "Space Grotesk", Arial, sans-serif;
 .zoomable-trigger {
   cursor: zoom-in;
 }
 
+img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
 .zoomable-trigger:focus-visible {
   outline: 2px solid var(--fire);
   outline-offset: 4px;
 }
 
+a {
+  color: inherit;
+}
+
+/* Page shell */
+.case-study {
+  width: min(100%, var(--max-width));
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 5rem);
 body.lightbox-locked {
   overflow: hidden;
 }
 
+/* Top navigation */
+.case-nav {
 .lightbox-overlay {
   position: fixed;
   inset: 0;
   z-index: 100;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  min-height: 88px;
+  border-bottom: 1px solid var(--line);
   justify-content: center;
   background: rgba(8, 8, 8, 0.92);
   opacity: 0;
@@ -30,11 +72,21 @@ body.lightbox-locked {
   transition: opacity 220ms ease, visibility 220ms ease;
 }
 
+.case-nav__brand,
+.case-nav__back {
+  color: var(--text);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-decoration: none;
+  text-transform: uppercase;
 .lightbox-overlay.is-open {
   opacity: 1;
   visibility: visible;
 }
 
+.case-nav__brand {
+  color: var(--fire);
 .lightbox-image {
   max-width: min(90vw, 480px);
   max-height: 85vh;
@@ -42,17 +94,34 @@ body.lightbox-locked {
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
 }
 
+.case-nav__back {
 .lightbox-counter {
   position: absolute;
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
   color: var(--muted-text);
+  transition: color 200ms ease;
+}
+
+.case-nav__back:hover,
+.case-nav__back:focus-visible {
+  color: var(--fire);
+  outline: none;
   font-family: "Space Grotesk", sans-serif;
   font-size: 0.72rem;
   letter-spacing: 0.14em;
 }
 
+/* Hero */
+.case-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+  gap: clamp(2.5rem, 8vw, 9rem);
+  align-items: end;
+  min-height: 640px;
+  padding: clamp(4rem, 9vw, 9rem) 0 clamp(4rem, 8vw, 7rem);
+  border-bottom: 1px solid var(--line);
 .lightbox-close,
 .lightbox-prev,
 .lightbox-next {
@@ -65,6 +134,10 @@ body.lightbox-locked {
   transition: color 200ms ease;
 }
 
+.case-kicker,
+.case-section-label,
+.case-meta dt {
+  margin: 0;
 .lightbox-close:hover,
 .lightbox-prev:hover,
 .lightbox-next:hover,
@@ -72,9 +145,149 @@ body.lightbox-locked {
 .lightbox-prev:focus-visible,
 .lightbox-next:focus-visible {
   color: var(--fire);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.case-kicker {
+  margin-bottom: 1.8rem;
+}
+
+.case-hero h1 {
+  max-width: 800px;
+  margin: 0;
+  font-size: clamp(4.5rem, 10vw, 10.5rem);
+  font-weight: 500;
+  line-height: 0.78;
+  letter-spacing: -0.095em;
+  text-transform: uppercase;
+}
+
+.case-hero h1 span {
+  display: block;
+}
+
+.case-intro {
+  max-width: 490px;
+  margin: 0 0 2rem;
+  color: var(--muted-text);
+  font-size: clamp(1rem, 1.6vw, 1.22rem);
+  line-height: 1.65;
+}
+
+.case-tags {
+  display: flex;
+ 	flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.case-tags span {
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--line);
+  color: var(--muted-text);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Primary project image */
+.case-feature {
+  padding: clamp(2rem, 5vw, 5rem) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.case-feature__frame {
+  display: grid;
+  min-height: 620px;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(255, 106, 0, 0.16),
+      transparent 44%
+    ),
+    var(--surface);
+}
+
+.case-feature__frame img {
+  width: min(100%, 510px);
+  max-height: 780px;
+  object-fit: contain;
+}
+
+.case-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+  color: var(--faint-text);
+  font-size: 0.68rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+/* Overview / content sections */
+.case-section {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.34fr) minmax(0, 0.9fr);
+  gap: clamp(2rem, 8vw, 9rem);
+  padding: clamp(4rem, 9vw, 9rem) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.case-section-label {
+  padding-top: 0.45rem;
+}
+
+.case-section__content {
+  max-width: 780px;
+}
+
+.case-section h2 {
+  max-width: 700px;
+  margin: 0 0 2rem;
+  font-size: clamp(2.5rem, 5vw, 5.75rem);
+  font-weight: 500;
+  line-height: 0.92;
+  letter-spacing: -0.075em;
+}
+
+.case-section p {
+  margin: 0 0 1.25rem;
+  color: var(--muted-text);
+  font-family: Inter, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.case-section p:last-child {
+  margin-bottom: 0;
+}
+
+/* Project metadata */
+.case-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 2.5rem 0 0;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.case-meta div {
+  min-height: 118px;
+  padding: 1.25rem;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
   outline: none;
 }
 
+.case-meta dt {
+  margin-bottom: 1rem;
+  color: var(--faint-text);
 .lightbox-close {
   top: 2rem;
   right: 2rem;
@@ -82,6 +295,11 @@ body.lightbox-locked {
   line-height: 1;
 }
 
+.case-meta dd {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.92rem;
+  line-height: 1.5;
 .lightbox-prev,
 .lightbox-next {
   top: 50%;
@@ -91,14 +309,29 @@ body.lightbox-locked {
   padding: 0.5rem 1rem;
 }
 
+/* Image pairs / detail screenshots */
+.case-image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 3rem;
 .lightbox-prev {
   left: 1rem;
 }
 
+.case-image-grid figure {
+  margin: 0;
+  overflow: hidden;
+  background: var(--surface-soft);
 .lightbox-next {
   right: 1rem;
 }
 
+.case-image-grid img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  transition: transform 350ms ease;
+}
 @media (max-width: 700px) {
   .lightbox-prev,
   .lightbox-next {
@@ -106,6 +339,8 @@ body.lightbox-locked {
     padding: 0.5rem;
   }
 
+.case-image-grid figure:hover img {
+  transform: scale(1.025);
   .lightbox-close {
     top: 1.2rem;
     right: 1.2rem;
@@ -113,34 +348,103 @@ body.lightbox-locked {
   }
 }
 
+.case-image-grid figcaption {
+  padding: 1rem;
+  color: var(--faint-text);
+  font-size: 0.67rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
 /* ---------- Typewriter reveal (web-development.html mockup) ---------- */
 
+/* Closing navigation */
+.case-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem 0 3rem;
 .web-visual-content h2 {
   min-height: 3.6em; /* reserves space so layout doesn't jump while typing */
 }
 
+.case-footer a {
+  color: var(--text);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 200ms ease;
 .tw-line {
   display: inline-block;
   border-right: 2px solid transparent;
 }
 
+.case-footer a:hover,
+.case-footer a:focus-visible {
+  color: var(--fire);
+  outline: none;
 .tw-line.is-typing {
   border-right-color: var(--fire);
   animation: tw-blink 0.9s step-end infinite;
 }
 
+/* Responsive */
+@media (max-width: 780px) {
+  .case-nav {
+    min-height: 72px;
+  }
+
+  .case-hero {
+    display: block;
+    min-height: auto;
+    padding: 5rem 0;
+  }
+
+  .case-hero h1 {
+    font-size: clamp(4rem, 18vw, 7rem);
+  }
+
+  .case-intro {
+    margin-top: 2.5rem;
+  }
+
+  .case-feature__frame {
+    min-height: 460px;
+    padding: 1.5rem;
+  }
+
+  .case-section {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .case-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .case-image-grid {
+    grid-template-columns: 1fr;
 @keyframes tw-blink {
   0%,
   100% {
     border-color: var(--fire);
   }
 
+  .case-footer {
+    flex-direction: column;
   50% {
     border-color: transparent;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   .tw-line.is-typing {
     animation: none;
     border-right-color: transparent;
